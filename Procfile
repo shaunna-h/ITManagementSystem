@@ -1,1 +1,1 @@
-web: gunicorn run:app
+web: gunicorn itmanagementsystem.wsgi --log-file -
