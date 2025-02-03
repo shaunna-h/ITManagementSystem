@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 
 # Basic homepage
 class Index (TemplateView):
@@ -26,3 +27,8 @@ class SignUpView(View):
             return redirect('index')
         
         return render(request, 'inventory/signup.html', {'form' : form})
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return render(request, 'inventory/logout.html', {})
