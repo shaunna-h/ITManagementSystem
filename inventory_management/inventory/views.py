@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import UserRegisterForm
 from.models import InventoryItem
 
 # Basic homepage
 class Index (TemplateView):
     template_name = 'inventory/index.html'
 
-class Dashboard(View):
+class Dashboard(LoginRequiredMixin, View):
     def get(self, request):
         items = InventoryItem.objects.filter(user=self.request.user.id).order_by('id')
         return render(request, 'inventory/dashboard.html', {'items' : items})
