@@ -3,11 +3,11 @@
 
 from django.contrib import admin
 from django.urls import path
-from .views import Index, SignUpView, user_logout, Dashboard, AddItem, EditItem, DeleteItem
+from .views import Index, SignUpView, Dashboard, AddItem, EditItem, DeleteItem, user_logout
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('index/', Index.as_view(), name='index'),
+    path('', Index.as_view(), name='index'),
     path('dashboard/', Dashboard.as_view(), name='dashboard'),
     path('add-item/', AddItem.as_view(), name='add-item'),
     path('edit-item/<int:pk>', EditItem.as_view(), name='edit-item'),
