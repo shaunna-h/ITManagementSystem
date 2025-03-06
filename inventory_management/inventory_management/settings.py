@@ -86,7 +86,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -101,6 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+#
 
 
 # Internationalization
@@ -131,4 +131,8 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_REDIRECT_URL = '/dashboard'
 
-LOGOUT_REDIRECT_URL = '/logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+LOGIN_URL ='login'
+
+LOW_QUANTITY = 3
