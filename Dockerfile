@@ -20,8 +20,8 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy the project code into the container
 COPY . /ITManagementSystem/
 
-# Collect static files (if applicable)
-RUN python manage.py collectstatic --noinput
+# # Collect static files (if applicable)
+# RUN python manage.py collectstatic --noinput
 
 # Expose the port the app runs on (adjust if needed)
 EXPOSE 8000
