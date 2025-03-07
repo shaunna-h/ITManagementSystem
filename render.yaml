@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: itmanagementsystem
+    name: ITManagementSystem
     env: python
     buildCommand: |
       pip install --upgrade pip
