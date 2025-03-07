@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: itmanagementsystem
+    env: python
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+      python manage.py migrate
+    startCommand: gunicorn itmanagementsystem.wsgi:application --bind 0.0.0.0:$PORT
