@@ -4,18 +4,6 @@ from django.urls import reverse
 
 from .models import InventoryItem, Category
 
-# class BasicTests(TestCase):
-# 	def test_1(self):
-# 		self.assertTrue(1==1)
-# 		# self.assertTrue(1==2)
-
-	# def test_2(self):
-	# 	try:
-	# 		# print("Hello!")
-	# 		raise Exception('Failure in test_2')
-	# 	except Exception as e:
-	# 		self.fail(e)
-
 class TestModels(TestCase):
 	def setUp(self):
 		"""
