@@ -20,11 +20,8 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy the project code into the container
 COPY . /ITManagementSystem/
 
-# # Collect static files (if applicable)
-# RUN python manage.py collectstatic --noinput
-
-# Expose the port the app runs on (adjust if needed)
+# Expose the port the app runs on
 EXPOSE 8000
 
-# Use Gunicorn as the WSGI HTTP Server (adjust the number of workers as necessary)
+# Use Gunicorn as the WSGI HTTP Server 
 CMD ["gunicorn", "inventory_management.wsgi:application", "--bind", "127.0.0.1:8000"]
