@@ -27,4 +27,4 @@ COPY . /ITManagementSystem/
 EXPOSE 8000
 
 # Use Gunicorn as the WSGI HTTP Server (adjust the number of workers as necessary)
-CMD ["gunicorn", "inventory_management.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "inventory_management.wsgi:application", "--bind", "127.0.0.1:8000"]
