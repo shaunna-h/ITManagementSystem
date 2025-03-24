@@ -15,6 +15,7 @@ python manage.py runserver
 If you want to run the local docker container in the terminal:
 docker build -t my-django-app .
 docker run --rm -p 8000:8000 my-django-app
+Access it through docker desktop rather than the terminal.
 
 # Sign-in for admin
 I have been unable to link this to the main UI, so to access admin, enter /admin/ on the homepage url.

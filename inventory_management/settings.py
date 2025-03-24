@@ -27,8 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'localhost',
+    'localhost:8000',
+    '0.0.0.0:8000'
     'itmanagementsystem.onrender.com',
+    'itmanagementsystem-docker.onrender.com',
 ]
 
 # Application definition
