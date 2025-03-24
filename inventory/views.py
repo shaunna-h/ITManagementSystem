@@ -8,14 +8,17 @@ from .forms import InventoryItemForm, UserRegisterForm
 from .models import Category, InventoryItem
 from inventory_management.settings import LOW_QUANTITY
 from django.contrib import messages
+from django.views.decorators.http import require_POST
 
 # Basic homepage
 class Index (TemplateView):
     template_name = 'inventory/index.html'
 class Dashboard(LoginRequiredMixin, View):
 	def get(self, request):
+        # Using Django's ORM here to prevent SQL Injection
 		items = InventoryItem.objects.filter(user=self.request.user.id).order_by('id')
 
+        # Same approach here: safe ORM calls
 		low_inventory = InventoryItem.objects.filter(
 			user=self.request.user.id,
 			quantity__lte=LOW_QUANTITY
@@ -72,6 +75,7 @@ class AddItem(LoginRequiredMixin, CreateView):
         return context
     
     def form_valid(self, form):
+        # This ensures the item is associated with the logged-in user
         form.instance.user = self.request.user
         return super().form_valid(form)
     

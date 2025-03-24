@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'csp',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'csp.middleware.CSPMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -54,6 +56,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSP_DEFAULT_SRC = ("'self'",)  # Load resources only from the same origin
+CSP_STYLE_SRC = ("'self'", "https://bootswatch.com/5/minty/bootstrap.min.css",)   # External styles
 
 ROOT_URLCONF = 'inventory_management.urls'
 
@@ -138,4 +143,5 @@ LOGOUT_REDIRECT_URL = 'login'
 
 LOGIN_URL ='login'
 
+# This has had to be hard-coded as unsure how to apply it to every item the user enters.
 LOW_QUANTITY = 3
